@@ -3,28 +3,36 @@ const app = Vue.createApp
     {
         data() 
         {
-            return {
-                intro: 'Welcome to my Vue template',
-            }
+            return { //our DOM with available parking spaces in our garage.
+                totalSpaces: 50, // Total capacity of the garage (static)
+                carsParked: 0,   // Current number of parked cars (changes with parked cars)
+              };
+
         },
 
-        methods:  
+        methods:  //This methods reacts when a sensor / button is triggered. when enters/exits the garage.
         {
-            myMethod()
-            {
-                
-            },
+            methods: { 
+                addCar() { /// Adds a "parked" car, when a car enters the parking Garage.
+                  if (this.carsParked < this.totalSpaces) { //Checks available spaces and deducts a parking space from the total.
+                    this.carsParked++; //confirms car is parked
+                  }
+                },
+
+                removeCar() { /// Removes a "parked" car, when a car exits the parking Garage.
+                  if (this.carsParked > 0) {
+                    this.carsParked--;
+                  }
+                },
+
+              },
         },
 
-        computed: 
+        computed: //always counts the the total of available parking spaces
         {
-            myComputed() 
-            {
-
-            return ''
-
+            availableSpaces() {
+              return this.totalSpaces - this.carsParked;
             },
-
-        }
+        },
     }
 )

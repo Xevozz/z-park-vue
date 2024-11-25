@@ -8,7 +8,7 @@
             <link rel="stylesheet" href="Style.css" />
             
             <!-- Import Vue.js --> 
-             <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> 
+             <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         </head>
 
 
@@ -18,7 +18,11 @@
 
                 </div> <h1>{{ intro }}</h1>
 
-                <h2> {{ intro }} </h2>
+                <input v-model="carIn" placeholder="enterParking">
+                <input v-model="carOut" placeholder="exitParking">
+
+      
+                <button v-on:click="gemBil" >Gem bil</button>
 
             </div>
 
@@ -26,6 +30,8 @@
 
             <!-- Import App --> 
             <script src="Index.js"></script>
+
+            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
             
             <!-- Mount App --> 
             <script> const mountedApp = app.mount('#app') </script> 
