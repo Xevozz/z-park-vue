@@ -12,9 +12,7 @@ const app = Vue.createApp
         {
             myMethod()
             {
-
-
-
+                
             },
         },
 
