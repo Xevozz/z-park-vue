@@ -20,15 +20,15 @@ const app = Vue.createApp
                 },
 
                 removeCar() { /// Removes a "parked" car, when a car exits the parking Garage.
-                  if (this.carsParked > 0) {
-                    this.carsParked--;
+                  if (this.carsParked > 0) { //Checks available spaces and adds a parking space from the total.
+                    this.carsParked--; //confirms car has exited
                   }
                 },
 
               },
         },
 
-        computed: //always counts the the total of available parking spaces
+        computed: //always counts the total of available parking spaces
         {
             availableSpaces() {
               return this.totalSpaces - this.carsParked;
