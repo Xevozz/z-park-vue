@@ -1,0 +1,69 @@
+<!DOCTYPE html> 
+    <html lang="en"> 
+        <head> 
+            <meta charset="UTF-8" /> 
+            <title> Z-park </title>
+            
+            <!-- Import Styles -->
+            <link rel="stylesheet" href="Style.css" />
+
+            <!-- Import Axios.js -->
+            <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" ></script>
+            
+            <!-- Import Vue.js -->
+             <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
+
+        </head>
+
+
+        <body> 
+
+            <!-- Top-Nav Bar -->
+            <div class="topnav">
+                <a href="Index.html">Z-Park</a>
+                <a href="#">Produkt</a>
+                <a href="#">Om Os</a>
+                <a class="active" href="#CreateUser.html" >Opret Bruger</a>
+            </div>
+
+            <div id="app">
+                <!-- Login container -->
+                <div class="CreateUser">
+
+                    <h3 id="h3login"> Brugeroplysninger </h3>
+                        <input id="U-name" v-model="firstName" placeholder="Fornavn">
+                        <p></p>
+                        <br/>
+                        <input id="U-name" v-model="lastName" placeholder="Efternavn">
+                        <p></p>
+                        <br/>
+                        <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
+                        <p></p>
+                        <br/>
+                        <input id="U-name" v-model="email" placeholder="E-mail">
+                        <p></p>
+                        <br/>
+                        <input id="U-name" v-model="phoneNumber" placeholder="Telefonnummer">
+                        <p></p>
+                        <br/>
+                        <input  id="U-name" v-model="Password" placeholder="Kodeord">
+                        <p></p>
+                    
+                    <div>
+                        <button id="buttonlogin" @click="Brugeroplysninger"> Opret bruger </button>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Import App --> 
+            <script src="main.js"></script>
+            
+            <!-- Mount App --> 
+            <script> const mountedApp = app.mount('#app') </script>
+
+        </body>
+    </html>

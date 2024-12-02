@@ -17,13 +17,12 @@
 
 
         <body> 
-
             <!-- Top-Nav Bar -->
             <div class="topnav">
                 <a class="active" href="#home">Z-Park</a>
                 <a href="#">Produkt</a>
                 <a href="#">Om Os</a>
-                <a href="#">Opret Bruger</a>
+                <a href="CreateUser.html">Opret Bruger</a>
             </div>
 
             <div id="app">
@@ -35,16 +34,15 @@
                             <p></p>
                             <br/>
                         <input id="U-name" v-model="Password" placeholder="Kodeord">
-                    <p id="forgot" href="glemt password" > Glemt kodeord? </p>
+                    <a id="forgot" href="glemt password" > Glemt kodeord/brugernavn? </a>
+                        <br/>
                     
                     <div>
                         <!-- Login knap -->
                         <button id="buttonlogin" @click="Brugeroplysninger"> Log ind </button>
-                        <p id="forgot" href="Opret Bruger" > Opret bruger </p>
+                        <a id="forgot" href="CreateUser.html" > Opret bruger </a>
                     </div>
-
                 </div>
-
             </div>
 
 

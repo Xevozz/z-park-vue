@@ -69,6 +69,18 @@
         width: 300px;
       }
 
+
+      .CreateUser {
+        background-color: white;
+        text-align: center;
+        align-items: center;
+        border: 3px solid seagreen;
+        padding: 25px 25px;
+        margin: auto;
+        margin-top: 100px;
+        width: 300px;
+      }
+
       #U-name {
         font-size: 25px;
 
@@ -81,7 +93,11 @@
 
       #forgot {
         color: blue;
-        font-size: 10px;
+        font-size: 16px;
+      }
+
+      #forgot:hover {
+        text-decoration: underline;
       }
 
       #buttonlogin {
