@@ -82,7 +82,7 @@
         font-size: 10px;
       }
 
-      #loginbutton {
-        color: seagreen;
-        font-size: 10px;
+      #buttonlogin {
+        color: #3b7a57;
+        border: 3px solid seagreen;
       }
