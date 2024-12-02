@@ -4,25 +4,44 @@
             <meta charset="UTF-8" /> 
             <title> Z-park </title>
             
-            <!-- Import Styles --> 
+            <!-- Import Styles -->
             <link rel="stylesheet" href="Style.css" />
+
+            <!-- Import Axios.js -->
+            <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" ></script>
             
-            <!-- Import Vue.js --> 
-             <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+            <!-- Import Vue.js -->
+             <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
+
         </head>
 
 
         <body> 
-            <div id="app"> 
-                <div class="nav-bar">
 
-                </div> <h1>{{ intro }}</h1>
+            <!-- Top-Nav Bar -->
+            <div class="topnav">
+                <a class="active" href="#home">Z-Park</a>
+                <a href="#">Produkt</a>
+                <a href="#">Om Os</a>
+                <a href="#">Opret Bruger</a>
+            </div>
 
-                <input v-model="carIn" placeholder="enterParking">
-                <input v-model="carOut" placeholder="exitParking">
+            <div id="app">
 
-      
-                <button v-on:click="gemBil" >Gem bil</button>
+                <div class="login">
+
+                    <h3 id="h3login">  Log ind </h3>
+                        <input  id="U-name" v-model="Username" placeholder="Brugernavn">
+                            <p></p>
+                            <br/>
+                        <input id="U-name" v-model="Password" placeholder="Kodeord">
+                    <h3 id="forgot"> Glemt kodeord? </h3>
+                    
+                    <div id="loginbutton">
+                         <button @click="Brugeroplysninger"> Log ind </button>
+                    </div>
+
+                </div>
 
             </div>
 
@@ -30,10 +49,9 @@
 
             <!-- Import App --> 
             <script src="main.js"></script>
-
-            <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
             
             <!-- Mount App --> 
-            <script> const mountedApp = app.mount('#app') </script> 
+            <script> const mountedApp = app.mount('#app') </script>
+
         </body>
     </html>

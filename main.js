@@ -1,12 +1,27 @@
-const app = Vue.createApp
+const baseUri = "http://localhost:5180/"
+
+Vue.createApp
 (
     {
         data() 
         {
-            return { //our DOM with available parking spaces in our garage.
-                totalSpaces: 50, // Total capacity of the garage (static)
-                carsParked: 0,   // Current number of parked cars (changes with parked cars)
-              };
+          return {
+            newlist:[],
+            Userslist: [],
+            error: null,
+            statuscode:null,
+            getUserByLicenseplate: "",
+            deleteUserByLicenseplate:1,
+            Name:"Niklas",
+            Lastname:"Pedersen",
+            Licenseplate:"BY12345",
+            Phone: 12345678,
+            Email: "niklas.loev@gmail.com",
+
+                            //our DOM with available parking spaces in our garage.
+            totalParkingSpaces: 50, // Total capacity of the garage (static)
+            carsParked: 0,   // Current number of parked cars (changes with parked cars)
+          };
 
         },
 
@@ -34,5 +49,4 @@ const app = Vue.createApp
               return this.totalSpaces - this.carsParked;
             },
         },
-    }
-)
+    }).mount("#app")
