@@ -27,7 +27,7 @@
             </div>
 
             <div id="app">
-
+                <!-- Login container -->
                 <div class="login">
 
                     <h3 id="h3login">  Log ind </h3>
@@ -35,11 +35,12 @@
                             <p></p>
                             <br/>
                         <input id="U-name" v-model="Password" placeholder="Kodeord">
-                    <h3 id="forgot"> Glemt kodeord? </h3>
+                    <p id="forgot" href="glemt password" > Glemt kodeord? </p>
                     
                     <div>
-                         <button id="buttonlogin" @click="Brugeroplysninger"> Log ind </button>
-                         <h3 id="forgot" href="Opret Bruger"> Opret bruger </h3>
+                        <!-- Login knap -->
+                        <button id="buttonlogin" @click="Brugeroplysninger"> Log ind </button>
+                        <p id="forgot" href="Opret Bruger" > Opret bruger </p>
                     </div>
 
                 </div>
