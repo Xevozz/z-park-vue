@@ -1,4 +1,4 @@
-const baseUri = "http://localhost:5143/api/Cars/Z-ParkLib/Model/User"
+const baseUri = "http://localhost:5143/api/Z-ParkLib/Model/User"
     /* DB Port = 1433 */
     /* Localhost Port = 5143 */
 
@@ -137,7 +137,7 @@ Vue.createApp
                  this.User = response.data;
                  this.status = response.status;
                   
-                 console.log("length of the carlists array " + this.User.length)
+                 console.log("length of the userlists array " + this.User.length)
                 })
 
                 .catch(error => {

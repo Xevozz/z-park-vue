@@ -30,13 +30,16 @@
                 <!-- Bruger indholdscontainer -->
                 <div class="brugere">
                     <h2 id="h3login"> User-Liste </h2>
-                    
+
                     <ul v-if="User.length > 0">
                         <li v-for="User in User-Liste" v-bind:key="Licenseplate">
                             Licenseplate {{Licenseplate}}: Name {{Name}} : Surname {{Surname}} : Mail {{Mail}} : Username {{Username}} : Password {{Password}}
                         </li>
                     </ul>
                     <div v-else style="font-style: italic;">Der er ingen brugere</div>
+
+                    <!-- Opret kode til at indhente oplysninger -->
+                     
 
             </div>
 
