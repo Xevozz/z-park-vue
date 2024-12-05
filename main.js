@@ -1,4 +1,4 @@
-const baseUri = "http://localhost:5180/"
+const baseUri = "http://localhost:5180/User"
 
 Vue.createApp
 (
@@ -10,20 +10,23 @@ Vue.createApp
             Userslist: [],
             error: null,
             statuscode:null,
-            getUserByLicenseplate: "",
-            deleteUserByLicenseplate:1,
+            getUserById: "",
+            deleteUserById:1,
+            PostUser: "",
             Name:"Niklas",
-            Lastname:"Pedersen",
+            Surname: "Pedersen",
             Licenseplate:"BY12345",
-            Phone: 12345678,
-            Email: "niklas.loev@gmail.com",
+            Mail: "niklas.loev@gmail.com",
+            Username: "Xevoz",
+            Password: 1,
 
-                            //our DOM with available parking spaces in our garage.
+                                    //our DOM with available parking spaces in our garage.
             totalParkingSpaces: 50, // Total capacity of the garage (static)
-            carsParked: 0,   // Current number of parked cars (changes with parked cars)
+            carsParked: 0,          // Current number of parked cars (changes with parked cars)
           };
 
         },
+
           created(){
             // created() is a life cycle method, not an ordinary method
             // created() is called automatically when the page is loaded
@@ -34,7 +37,6 @@ Vue.createApp
         methods:  //This methods reacts when a sensor / button is triggered. when enters/exits the garage.
         {
             methods: { 
-
               cleanList() {
                 this.Userslist = [];
                 this.error = null;
@@ -96,7 +98,7 @@ Vue.createApp
 
                 PostUser(){
                   this.error = null;
-                  axios.post(baseUri,{"id":this.Licenseplate,"Navn":this.Name,"Efternavn":this.Surname})
+                  axios.post(baseUri,{"Navn":this.Name,"Efternavn":this.Surname, "Licenseplate":this.Licenseplate, "Mail":this.Mail, "Brugernavn":this.Username, "Password":this.Password})
                   .then(response => {
                   
                   console.log("URI: ")
@@ -143,7 +145,7 @@ Vue.createApp
                 })      
             },
 
-              addUser() { /// Adds a "parked" car, when a car enters the parking Garage.
+              /*addUser() { /// Adds a "parked" car, when a car enters the parking Garage.
                 if (this.carsParked < this.totalSpaces) { //Checks available spaces and deducts a parking space from the total.
                   this.carsParked++; //confirms car is parked
                   }
@@ -155,7 +157,7 @@ Vue.createApp
                   }
                 },
 
-              },
+              },*/
         },
 
         computed: //always counts the total of available parking spaces
@@ -164,4 +166,6 @@ Vue.createApp
               return this.totalSpaces - this.carsParked;
             },
         },
+      }
+
     }).mount("#app")
