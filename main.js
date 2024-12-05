@@ -40,8 +40,8 @@ Vue.createApp
         {
             methods: { 
               cleanList() {
-                this.User = [];
-                this.error = null;
+                this.Userslist = [];
+                this.status = null;
                 console.log("count Users : " + this.User.length);
               },
 
