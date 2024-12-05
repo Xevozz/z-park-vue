@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+    <html lang="en"> 
+        <head> 
+            <meta charset="UTF-8" /> 
+            <title> Z-park </title>
+            
+            <!-- Import Styles -->
+            <link rel="stylesheet" href="Style.css" />
+
+            <!-- Import Axios.js -->
+            <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" ></script>
+            
+            <!-- Import Vue.js -->
+             <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
+
+        </head>
+
+
+        <body> 
+             <!-- Top-Nav Bar -->
+             <div class="topnav">
+                <a href="#home"> Z-Park </a>
+                <a href="#"> Produkt </a>
+                <a href="#"> Om Os </a>
+                <a href="CreateUser.html"> Opret Bruger </a>
+                <a class="active"> Brugere </a>
+            </div>
+
+            <div id="app"></div>
+                <!-- Bruger indholdscontainer -->
+                <div class="brugere">
+                    <h2 id="h3login"> User-Liste </h2>
+                    
+                    <ul v-if="User.length > 0">
+                        <li v-for="User in User-Liste" v-bind:key="Licenseplate">
+                            Licenseplate {{Licenseplate}}: Name {{Name}} : Surname {{Surname}} : Mail {{Mail}} : Username {{Username}} : Password {{Password}}
+                        </li>
+                    </ul>
+                    <div v-else style="font-style: italic;">Der er ingen brugere</div>
+
+            </div>
+
+            <!-- Import App --> 
+            <script src="main.js"></script>
+            
+            <!-- Mount App --> 
+            <script> const mountedApp = app.mount('#app') </script>
+
+
+        </body>
+    </html>
