@@ -1,0 +1,13 @@
+{
+    //Connection to database/projekt files and data.
+
+    "version": "0.2.0",
+    "configuration": [
+        {
+            "type": "chrome",
+            "requests": "launch",
+            "name": "launch chrome against local host",
+            "url": "http://localhost:5143"
+        }
+    ]
+}
