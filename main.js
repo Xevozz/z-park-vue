@@ -1,4 +1,6 @@
-const baseUri = "http://localhost:5180/User"
+const baseUri = "http://localhost:5143/api/Cars/Z-ParkLib/Model/User"
+    /* DB Port = 1433 */
+    /* Localhost Port = 5143 */
 
 Vue.createApp
 (
@@ -11,14 +13,14 @@ Vue.createApp
             error: null,
             statuscode:null,
             getUserById: "",
-            deleteUserById:1,
+            deleteUserById:"",
             PostUser: "",
-            Name:"Niklas",
-            Surname: "Pedersen",
-            Licenseplate:"BY12345",
-            Mail: "niklas.loev@gmail.com",
-            Username: "Xevoz",
-            Password: 1,
+            Licenseplate:"",
+            Name:"",
+            Surname: "",
+            Mail: "",
+            Username: "",
+            Password: "",
 
                                     //our DOM with available parking spaces in our garage.
             totalParkingSpaces: 50, // Total capacity of the garage (static)
@@ -27,14 +29,14 @@ Vue.createApp
 
         },
 
-          created(){
+          /*created(){
             // created() is a life cycle method, not an ordinary method
             // created() is called automatically when the page is loaded
               console.log("created method called")
                 this.getAllUsers()
-          },
+          },*/
 
-        methods:  //This methods reacts when a sensor / button is triggered. when enters/exits the garage.
+        methods:  // This methods reacts when a sensor / button is triggered. when enters / exits the garage.
         {
             methods: { 
               cleanList() {
@@ -82,12 +84,12 @@ Vue.createApp
                   console.log("status code: "+ response.status );
       
                   //add the returning data from the webservice to the variable posts
-                  //  this.carslist = response.data;
+                  //this.Userslist = response.data;
                   this.Userslist = [];
                   this.Userslist.push(response.data);
                   this.status = response.status;
                     
-                  console.log("length of the carlists array " + this.Userslist.length)
+                  console.log("length of the Userslists array " + this.Userslist.length)
                   })
                   .catch(error => {
                     this.Userslist = []
@@ -98,7 +100,7 @@ Vue.createApp
 
                 PostUser(){
                   this.error = null;
-                  axios.post(baseUri,{"Navn":this.Name,"Efternavn":this.Surname, "Licenseplate":this.Licenseplate, "Mail":this.Mail, "Brugernavn":this.Username, "Password":this.Password})
+                  axios.post(baseUri,{"Licenseplate":this.Licenseplate, "Navn":this.Name,"Efternavn":this.Surname, "Mail":this.Mail, "Brugernavn":this.Username, "Password":this.Password})
                   .then(response => {
                   
                   console.log("URI: ")
