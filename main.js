@@ -40,9 +40,9 @@ Vue.createApp
         {
             methods: { 
               cleanList() {
-                this.Userslist = [];
+                this.User = [];
                 this.error = null;
-                console.log("count Users : " + this.Userslist.length);
+                console.log("count Users : " + this.User.length);
               },
 
               getAllUsers() {
@@ -55,23 +55,23 @@ Vue.createApp
                   console.log("status code: "+ response.status );
       
                   //add the returning data from the webservice to the variable carlists
-                  this.Userslist = response.data;
+                  this.User = response.data;
                   this.status = response.status;
                     
-                  console.log("length of the userlist array " + this.Userslist.length)
+                  console.log("length of the userlist array " + this.User.length)
       
       
                   })
                   .catch(error => {
                     //resultElement.innerHTML = generateErrorHTMLOutput(error);
-                    this.Userslist = []
+                    this.User = []
                     this.error = error.message
                     console.log("Error:" + this.error);
                   })      
                 
               },
 
-                getUserById(Licenseplate){
+                getById(Licenseplate){
                   this.error = null;
                   //axios call that returns the items from a specified user 
                   uri = baseUri +"/"+id
@@ -80,19 +80,19 @@ Vue.createApp
                   
                   console.log("Uri: " + uri)
       
-                  console.log("in function getUserById");
+                  console.log("in function getById");
                   console.log("status code: "+ response.status );
       
                   //add the returning data from the webservice to the variable posts
                   //this.Userslist = response.data;
-                  this.Userslist = [];
-                  this.Userslist.push(response.data);
+                  this.User = [];
+                  this.User.push(response.data);
                   this.status = response.status;
                     
-                  console.log("length of the Userslists array " + this.Userslist.length)
+                  console.log("length of the Userslists array " + this.User.length)
                   })
                   .catch(error => {
-                    this.Userslist = []
+                    this.User = []
                     this.error = error.message
                     console.log("Error:" + this.error);
                   })
@@ -112,10 +112,10 @@ Vue.createApp
                   //this.Userslists = response.data;
                   this.status = response.status;
                     
-                  console.log("length of Users array " + this.Userslist.length)
+                  console.log("length of Users array " + this.User.length)
                   })
                   .catch(error => {
-                    this.Userslist = []
+                    this.User = []
                     this.error = error.message
                     console.log("Error:" + this.error);
                   })    
@@ -134,14 +134,14 @@ Vue.createApp
                  console.log("status code: "+ response.status );
     
                  //add the returning data from the webservice to the variable posts
-                 this.Userslistlist = response.data;
+                 this.User = response.data;
                  this.status = response.status;
                   
-                 console.log("length of the carlists array " + this.Userslist.length)
+                 console.log("length of the carlists array " + this.User.length)
                 })
 
                 .catch(error => {
-                  this.Userslist = []
+                  this.User = []
                   this.error = error.message
                   console.log("Error:" + this.error);
                 })      
