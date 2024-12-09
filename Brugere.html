@@ -26,28 +26,36 @@
                 <a class="active"> Brugere </a>
             </div>
 
-            <div id="app"></div>
+            <div id="app">  <!-- ik luk er, fjernet ekstra div tag.-->
                 <!-- Bruger indholdscontainer -->
                 <div class="brugere">
 
-                    <h2 id="h3login"> User-Liste </h2>
-
-                    <ul v-if="User.length > 0">
-                        <li v-for="User in User-Liste" v-bind:key="Licenseplate">
-                            Licenseplate {{Licenseplate}}: Name {{Name}} : Surname {{Surname}} : Mail {{Mail}} : Username {{Username}} : Password {{Password}}
-                        </li>
-                    </ul>
-                    <div v-else style="font-style: italic;">Der er ingen brugere</div>
+                  
+                    <div id="app"> 
+                        <h2 id="h3login">User-Liste</h2>
+                       <!-- Bruger indholdscontainer ændret navn til userlist -->
+                        <ul v-if="Userslist.length > 0">
+                            <li v-for="user in Userslist" :key="user.licenseplate">
+                              Licenseplate: {{ user.licenseplate }} | 
+                              Name: {{ user.name }} | 
+                              Surname: {{ user.surname }} | 
+                              Mail: {{ user.mail }} | 
+                              Username: {{ user.username }} | 
+                              Password: {{ user.password }}
+                            </li>
+                          </ul>
+                          <div v-else style="font-style: italic;">Der er ingen brugere</div>
+                          
+                      
 
                     <!-- Opret kode til at indhente oplysninger -->
-
 
             </div>
 
             <!-- Import App --> 
             <script src="main.js"></script>
             
-            <!-- Mount App --> 
+            <!-- Mount App -->  
             <script> const mountedApp = app.mount('#app') </script>
 
 
