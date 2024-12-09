@@ -66,20 +66,24 @@ const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Reb
          });
      },
  
-     PostUser() {
-       this.error = null;
-       axios
-         .post(baseUri, {
-           licenseplate: this.licenseplate,
-           Name: this.Name,
-           Surname: this.Surname,
-           Mail: this.Mail,
-           Username: this.Username,
-           Password: this.Password,
-         })
+     OpretBruger() {
+      console.log("OpretBruger kaldt"); // Debugging
+      this.error = null;
+      axios
+          .post("http://localhost:5143/api/UsersControllerDb", {
+            licenseplate: this.licenseplate,
+            Name: this.Name,
+            Surname: this.Surname,
+            Mail: this.Mail,
+            Username: this.Username,
+            Password: this.Password,
+         })  
          .then((response) => {
            console.log("status code: " + response.status);
            this.status = response.status;
+
+           alert("Bruger oprettet med succes!");
+           window.location.href = "Brugere.html";
          })
          .catch((error) => {
            this.error = error.message;

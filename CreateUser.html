@@ -31,13 +31,13 @@
                 <div class="CreateUser">
 
                     <h3 id="h3login"> Brugeroplysninger </h3>
-                        <input id="U-name" v-model="Licenseplate" placeholder="Nummerplade">
-                        <p></p>
-                        <br/>
-                        <input id="U-name" v-model="Surname" placeholder="Efternavn">
+                        <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
                         <p></p>
                         <br/>
                         <input id="U-name" v-model="Name" placeholder="Fornavn">
+                        <p></p>
+                        <br/>
+                        <input id="U-name" v-model="Surname" placeholder="Efternavn">
                         <p></p>
                         <br/>
                         <input id="U-name" v-model="Mail" placeholder="E-mail">
@@ -53,7 +53,7 @@
                          
                     
                     <div>
-                        <button id="buttonlogin" @click="Brugeroplysninger"> Opret bruger </button>
+                        <button id="buttonlogin" @click="OpretBruger"> Opret bruger </button>
                     </div>
 
                 </div>
