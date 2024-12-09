@@ -24,23 +24,24 @@
                 <a href="#"> Om Os </a>
                 <a href="CreateUser.html"> Opret Bruger </a>
                 <a href="Brugere.html"> Brugere </a>
+                <a href="/" v-if="!loggedInUser">{{ username }}</a>
             </div>
 
             <div id="app">
                 <!-- Login container -->
                 <div class="login">
                     <h3 id="h3login"> Log ind </h3>
-                        <input  id="U-name" v-model="Username" placeholder="Brugernavn">
+                        <input  id="U-name" input id="licenseplate" v-model="licenseplate" placeholder="Nummerplade">
                             <p></p>
                             <br/>
-                        <input id="U-name" v-model="Password" placeholder="Kodeord">
+                        <input id="U-name" input id= "password" type="password" v-model="password" placeholder="Kodeord">
                         <a id="forgot" href="glemt password" > Glemt kodeord/brugernavn? </a>
                             <br/>
                     <div>
-                        <!-- Login knap -->
-                        <button id="buttonlogin" @click="Brugeroplysninger"> Log ind </button>
-                        <a id="forgot" href="CreateUser.html" > Opret bruger </a>
+                        <button @click="verifyLogin">Log ind</button>
                     </div>
+                        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+                        <p v-if="successMessage" class="success">{{ successMessage }}</p>
                 </div>
             </div>
 
