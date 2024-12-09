@@ -1,4 +1,5 @@
-const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Rebin: Rettet til korrekt endpoint.
+const baseUri = "http://localhost:58656/api/UsersControllerDb"; // Ændret af Rebin: Rettet til korrekt endpoint.
+
 
  Vue.createApp({
    data() {
@@ -31,7 +32,7 @@ const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Reb
      getAllUsers() {
        this.error = null;
        axios
-       .get("http://localhost:5143/api/UsersControllerDb") //ændret af Rebin
+       .get(baseUri) //ændret af Rebin
          .then((response) => {
            console.log("in function getAllUsers");
            console.log("status code: " + response.status);
@@ -115,10 +116,10 @@ const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Reb
           }
 
           // Axios POST request with .then() and .catch() for Login.
+          
           console.log("Sending login request...");
           axios
-              .get("http://localhost:5143/api/UsersControllerDb", {
-              })
+              .get(baseUri)
               .then((response) => {
                   const result = response.data;
 
