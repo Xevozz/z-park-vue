@@ -1,4 +1,4 @@
-const baseUri = "http://localhost:58656/api/UsersControllerDb"; // Ændret af Rebin: Rettet til korrekt endpoint.
+const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Rebin: Rettet til korrekt endpoint.
 
 
  Vue.createApp({
