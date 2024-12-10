@@ -21,6 +21,9 @@ class loginData {
        Mail: "",
        Username: "",
        Password: "",
+       StationId:"06170", //Roskilde Lufthavn som datakilde.
+       ApiKey:"f12adcb1-0bcb-4d7b-ad45-b8475b0f12fd", //Personlig API-key fra DMI.
+
      };
    },
  
@@ -30,11 +33,33 @@ class loginData {
    },
  
    methods: {
-     cleanList() {
-       this.Userslist = []; // Ændret af Rebin: Rettet fra User til Userslist.
-       this.error = null;
-       console.log("count Users: " + this.Userslist.length); // Ændret af Rebin: Rettet fra User.length til Userslist.length.
-     },
+
+    cleanList() {
+      this.Userslist = []; // Ændret af Rebin: Rettet fra User til Userslist.
+      this.error = null;
+      console.log("count Users: " + this.Userslist.length); // Ændret af Rebin: Rettet fra User.length til Userslist.length.
+    },
+
+    //Bruger Axios GET ved brug af DMI endpoint stringen med stationid og api-key, med fejlhåndtering.
+    getWeatherData() {
+      this.loading = true; //indikerer at en dataindlæsning, som en API-anmodning er i gang, hvis true indlæses data
+      this.error = null; // Nulstiller fejlinformationen, før der udføres en ny proces. fjerner gamle fejlhåndteringer.
+
+      //Bruges som "Endpoint" til at connected til DMIs URL.
+      const endpoint = `https://dmigw.govcloud.dk/v2/metObs/collections/observation/items?stationId=${this.StationId}&api-key=${this.ApiKey}`;
+
+      axios
+        .get(endpoint)
+        .then((response) => { //indhenter Vejret
+            this.weatherData = response.data; //DMI's data response, gerne med vejret.
+         })
+            .catch((error) => { //fejlhåndtering
+            this.error = 'Kunne ikke få fat i vejr data: ' + error.message;
+          })
+            .finally(() => { //fejlhåndtering
+            this.loading = false;
+          });
+    },
  
      getAllUsers() {
        this.error = null;
