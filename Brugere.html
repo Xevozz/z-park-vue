@@ -25,31 +25,36 @@
                 <a href="CreateUser.html"> Opret Bruger </a>
                 <a class="active"> Brugere </a>
             </div>
-
-            <div id="app">  <!-- ik luk er, fjernet ekstra div tag.-->
-                <!-- Bruger indholdscontainer -->
-                <div class="brugere">
-
-                  
-                    <div id="app"> 
-                        <h2 id="h3login">User-Liste</h2>
-                       <!-- Bruger indholdscontainer ændret navn til userlist -->
+                <div id="app"> 
+                    <div class="BrugerListeTabelBox">
+                        <h2 id="h2UserList">User-Liste</h2>
+                        <br>
+                        <!-- Bruger indholdscontainer ændret navn til userlist -->
                         <ul v-if="Userslist.length > 0">
-                            <li v-for="user in Userslist" :key="user.licenseplate">
-                              Licenseplate: {{ user.licenseplate }} | 
-                              Name: {{ user.name }} | 
-                              Surname: {{ user.surname }} | 
-                              Mail: {{ user.mail }} | 
-                              Username: {{ user.username }} | 
-                              Password: {{ user.password }}
-                            </li>
-                          </ul>
-                          <div v-else style="font-style: italic;">Der er ingen brugere</div>
-                          
-                      
-
-                    <!-- Opret kode til at indhente oplysninger -->
-
+                            <table id="UserList">
+                                <thead>
+                                    <tr>
+                                        <th>Fulde navn</th>
+                                        <th>Nummerplade</th>
+                                        <th>E-mail</th>
+                                        <th>Brugernavn</th>
+                                        <th>Kodeord</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="user in Userslist" :key="user.licenseplate">
+                                        <td>{{ user.name }} {{ user.surname }}</td>
+                                        <td>{{ user.licenseplate }}</td>
+                                        <td>{{ user.mail }}</td>
+                                        <td>{{ user.username }}</td>
+                                        <td>{{ user.password }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </ul>
+                        <div v-else style="font-style: italic;">Der er ingen brugere</div>
+                    </div>
+                </div>
             </div>
 
             <!-- Import App --> 

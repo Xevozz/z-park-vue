@@ -115,3 +115,48 @@
         color: #3b7a57;
         border: 3px solid seagreen;
       }
+
+      .BrugerListeTabelBox {
+        background-color: rgba(0, 0, 0, 0.5); /* Gennemsigtig sort baggrund med 50% opacitet */
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 70%; /* Justeret til 70% for at centrere og give lidt margin på siderne */
+        margin: 0 auto; /* Centrerer boksen på siden */
+        display: flex;
+        flex-direction: column; /* Sørger for at overskrift og tabel er stablet vertikalt */
+        align-items: center; /* Centrerer indholdet horisontalt */
+        margin-top: 100px;
+    }
+    
+    #h2UserList {
+        color: white; /* Hvid tekst for overskriften */
+        font-size: 24px; /* Større skriftstørrelse for bedre synlighed */
+        text-align: center;
+        margin-bottom: 5px; /* Afstand mellem overskriften og tabellen */
+    }
+    
+    #UserList {
+        width: 100%; /* Sørger for at tabellen fylder containeren */
+        max-width: 1000px; /* Begrænser maks. bredde, så den ikke bliver for stor */
+        border-collapse: collapse; /* Fjern dobbeltlinjer mellem celler */
+        margin-top: 5px; /* Afstand fra overskriften */
+        background-color: white; /* Gør tabellen hvid */
+        border: 2px solid black; /* Sort ramme omkring hele tabellen */
+    }
+    
+    th, td {
+        padding: 15px 20px; /* Øger afstanden i cellerne, så de bliver bredere */
+        text-align: left;
+        border: 1px solid black; /* Sort kant omkring cellerne */
+    }
+    
+    th {
+        background-color: #f8f8f8; /* Lys baggrund for headeren */
+    }
+    
+    tbody tr:hover {
+        background-color: #f1f1f1; /* Lys hover-effekt på rækker */
+    }
+    
+    
