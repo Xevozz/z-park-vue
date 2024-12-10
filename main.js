@@ -1,11 +1,13 @@
 const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Rebin: Rettet til korrekt endpoint.
 
+
  Vue.createApp({
    data() {
      return {
        Userslist: [], // Ændret af Rebin: Rettet fra User til Userslist.
        error: null,
        statuscode: null,
+       loggedInUser: null, // Stores the username after login
        licenseplate: "",
        Name: "",
        Surname: "",
@@ -30,7 +32,7 @@ const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Reb
      getAllUsers() {
        this.error = null;
        axios
-       .get("http://localhost:5143/api/UsersControllerDb") //ændret af Rebin
+       .get(baseUri) //ændret af Rebin
          .then((response) => {
            console.log("in function getAllUsers");
            console.log("status code: " + response.status);
@@ -105,6 +107,36 @@ const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Reb
            console.log("Error: " + this.error);
          });
      },
-   },
+
+     verifyLogin() {
+          if (!this.licenseplate || !this.password) {
+              this.errorMessage = "Both fields are required.";
+              this.successMessage = "";
+              return;
+          }
+
+          // Axios POST request with .then() and .catch() for Login.
+          
+          console.log("Sending login request...");
+          axios
+              .get(baseUri)
+              .then((response) => {
+                  const result = response.data;
+
+                  if (result.success) {
+                      this.successMessage = "Login successfuldt!";
+                      this.errorMessage = "";
+                  } else {
+                      this.errorMessage = result.message || "Forkert Nummerplade/Password ";
+                      this.successMessage = "";
+                  }
+              })
+              .catch((error) => {
+                  this.errorMessage = "Der skete en fejl, Prøv igen";
+                  this.successMessage = "";
+                  console.error(error);
+              });
+          },
+      },
  }).mount("#app");
  
