@@ -28,28 +28,25 @@
             </div>
 
             <div id="app">
-                <!-- Login container -->
                 <div class="login">
-                    <h3 id="h3login"> Log ind </h3>
-                        <input  id="U-name" input id="licenseplate" v-model="licenseplate" placeholder="Nummerplade">
-                            <p></p>
-                            <br/>
-                        <input id="U-name" input id= "password" type="password" v-model="password" placeholder="Kodeord">
-                        <a id="forgot" href="glemt password" > Glemt kodeord/brugernavn? </a>
-                            <br/>
+                    <h3 id="h3login">Log ind</h3>
+                    <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
+                    <p></p>
+                    <input id="U-name" type="password" v-model="Password" placeholder="Kodeord">
+                    <a id="forgot" href="#">Glemt kodeord/brugernavn?</a>
+                    <br />
                     <div>
                         <button @click="verifyLogin">Log ind</button>
                     </div>
-                        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-                        <p v-if="successMessage" class="success">{{ successMessage }}</p>
+                    <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+                    <p v-if="successMessage" class="success">{{ successMessage }}</p>
                 </div>
             </div>
 
             <!-- Import App --> 
             <script src="main.js"></script>
             
-            <!-- Mount App --> 
-            <script> const mountedApp = app.mount('#app') </script>
+
 
         </body>
     </html>

@@ -1,6 +1,13 @@
 const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Rebin: Rettet til korrekt endpoint.
 
 
+class loginData {
+  constructor(licenseplate, password){
+    this.licenseplate = licenseplate; 
+    this.password = password; 
+  }
+}
+
  Vue.createApp({
    data() {
      return {
@@ -109,34 +116,33 @@ const baseUri = "http://localhost:5143/api/UsersControllerDb"; // Ændret af Reb
      },
 
      verifyLogin() {
-          if (!this.licenseplate || !this.password) {
-              this.errorMessage = "Both fields are required.";
-              this.successMessage = "";
-              return;
-          }
+      console.log("Log ind metode kaldt");
+      if (this.licenseplate == "" || this.Password == "") {
+          console.error("Nummerplade og kodeord skal udfyldes");
+          return;
+      }
+  
+      const loginAttempt = new loginData(this.licenseplate, this.Password); 
 
-          // Axios POST request with .then() and .catch() for Login.
+  
+      axios({
+        url:'http://localhost:5143/api/UsersControllerDb/login', 
+        data:loginAttempt,
+        method: "POST"
+      })
+          .then((response) => {
+              console.log("Serverens svar:", response.data);
+              if (response.status == 200) {
+                  alert("Login succesfuldt!");
+              } else {
+                  alert("Forkert nummerplade eller kodeord.");
+              }
+          })
+          .catch((error) => {
+              console.error("Login fejl:", error);
+          });
+  },
           
-          console.log("Sending login request...");
-          axios
-              .get(baseUri)
-              .then((response) => {
-                  const result = response.data;
-
-                  if (result.success) {
-                      this.successMessage = "Login successfuldt!";
-                      this.errorMessage = "";
-                  } else {
-                      this.errorMessage = result.message || "Forkert Nummerplade/Password ";
-                      this.successMessage = "";
-                  }
-              })
-              .catch((error) => {
-                  this.errorMessage = "Der skete en fejl, Prøv igen";
-                  this.successMessage = "";
-                  console.error(error);
-              });
-          },
       },
  }).mount("#app");
  
