@@ -16,14 +16,20 @@
         </head>
 
 
-        <body> 
+        <body id="app"> 
             <!-- Top-Nav Bar -->
             <div class="topnav">
-                <a href="Index.html"> Z-Park </a>
-                <a href="#"> Produkt </a>
-                <a href="#"> Om Os </a>
-                <a class="active" href="#CreateUser.html" > Opret Bruger </a>
-                <a href="Brugere.html"> Brugere </a>
+                <a href="Index.html">Z-Park</a>
+                <a href="Brugere.html">Brugere</a>
+                <a class="active" href="CreateUser.html">Opret Bruger</a>
+                <a href="minkonto.html">Min Konto</a>
+                <!-- Dynamisk visning af Log ind / Log ud -->
+                <span v-if="!loggedInUser">
+                    <a href="#" style="cursor: pointer;">Log ind</a>
+                </span>
+                <span v-else>
+                    <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
+                </span>
             </div>
 
             <div id="app">
