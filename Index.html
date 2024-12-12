@@ -27,6 +27,7 @@
                     <a href="#">Om Os</a>
                     <a href="CreateUser.html">Opret Bruger</a>
                     <a href="Brugere.html">Brugere</a>
+                    <a href="minkonto.html">Min Konto</a>
                     <!-- Dynamisk visning af Log ind / Log ud -->
                     <span v-if="!loggedInUser">
                         <a href="#" style="cursor: pointer;">Log ind</a>
@@ -52,8 +53,7 @@
                 </div>
             
                 <div class="logout" v-if="loggedInUser">
-                    <h3>Velkommen, {{ loggedInUser }}</h3>
-                
+                    <h3>Velkommen, {{ loggedInUser }}</h3>                
                 </div>
             </div>
             

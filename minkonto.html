@@ -1,68 +1,66 @@
-<!DOCTYPE html> 
-    <html lang="en"> 
-        <head> 
-            <meta charset="UTF-8" /> 
-            <title> Z-park </title>
-            
-            <!-- Import Styles -->
-            <link rel="stylesheet" href="Style.css" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Z-park</title>
 
-            <!-- Import Axios.js -->
-            <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" ></script>
-            
-            <!-- Import Vue.js -->
-             <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="Style.css" />
 
-        </head>
+    <!-- Import Axios.js -->
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
 
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
 
-        <body> 
-             <!-- Top-Nav Bar -->
-             <div class="topnav">
-                <a href="Index.html"> Z-Park </a>
-                <a href="#"> Produkt </a>
-                <a href="#"> Om Os </a>
-                <a href="CreateUser.html"> Opret Bruger </a>
-                <a class="active"> Min Konto </a>
-            </div>
-                <div id="app"> 
-                    <div class="BrugerListeTabelBox">
-                        <h2 id="h2UserList">User-Liste</h2>
-                        <br>
-                        <!-- Bruger indholdscontainer ændret navn til userlist -->
-                        <ul v-if="Userslist.length > 0">
-                            <table id="UserList">
-                                <thead>
-                                    <tr>
-                                        <th>Fulde navn</th>
-                                        <th>Nummerplade</th>
-                                        <th>E-mail</th>
-                                        <th>Brugernavn</th>
-                                        <th>Kodeord</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="user in Userslist" :key="user.licenseplate">
-                                        <td>{{ user.name }} {{ user.surname }}</td>
-                                        <td>{{ user.licenseplate }}</td>
-                                        <td>{{ user.mail }}</td>
-                                        <td>{{ user.username }}</td>
-                                        <td>{{ user.password }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </ul>
-                        <div v-else style="font-style: italic;">Der er ingen brugere</div>
-                    </div>
-                </div>
-            </div>
+<body id="app">
+    <!-- Top-Nav Bar -->
+    <div class="topnav">
+        <a href="Index.html">Z-Park</a>
+        <a href="#">Produkt</a>
+        <a href="#">Om Os</a>
+        <a href="CreateUser.html">Opret Bruger</a>
+        <a href="Brugere.html">Brugere</a>
+        <a class="active">Min Konto</a>
+        <span v-if="!loggedInUser">
+            <a href="#" style="cursor: pointer;">Log ind</a>
+        </span>
+        <span v-else>
+            <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
+        </span>
+    </div>
 
-            <!-- Import App --> 
-            <script src="main.js"></script>
-            
-            <!-- Mount App -->  
-            <script> const mountedApp = app.mount('#app') </script>
+    <div>
+        <!-- Brugeroplysninger for den loggede ind bruger -->
+        <div class="BrugerListeTabelBox" v-if="loggedInUser && userDetails">
+            <h2 id="h2UserList">Min Konto</h2>
+            <br>
+            <table id="UserList">
+                <thead>
+                    <tr>
+                        <th>Fulde navn</th>
+                        <th>Nummerplade</th>
+                        <th>E-mail</th>
+                        <th>Brugernavn</th>
+                        <th>Kodeord</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ userDetails.name }} {{ userDetails.surname }}</td>
+                        <td>{{ userDetails.licenseplate }}</td>
+                        <td>{{ userDetails.mail }}</td>
+                        <td>{{ userDetails.username }}</td>
+                        <td>{{ userDetails.password }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div v-else style="font-style: italic;">Ingen bruger er logget ind</div>
+    </div>
 
-
-        </body>
-    </html>
+    <!-- Import App -->
+    <script src="main.js"></script>
+</body>
+</html>
