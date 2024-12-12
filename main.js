@@ -140,34 +140,42 @@ class loginData {
          });
      },
 
-     verifyLogin() {
-      console.log("Log ind metode kaldt");
-      if (this.licenseplate == "" || this.Password == "") {
-          console.error("Nummerplade og kodeord skal udfyldes");
-          return;
-      }
+     
+    verifyLogin() {
+          console.log("Log ind metode kaldt");
+          if (this.licenseplate == "" || this.Password == "") {
+              console.error("Nummerplade og kodeord skal udfyldes");
+              return;
+          }
   
-      const loginAttempt = new loginData(this.licenseplate, this.Password); 
-
+          const loginAttempt = new loginData(this.licenseplate, this.Password);
   
-      axios({
-        url:'http://localhost:5143/api/UsersControllerDb/login', 
-        data:loginAttempt,
-        method: "POST"
-      })
-          .then((response) => {
-              console.log("Serverens svar:", response.data);
-              if (response.status == 200) {
-                  alert("Login succesfuldt!");
-              } else {
-                  alert("Forkert nummerplade eller kodeord.");
-              }
+          axios({
+              url: 'http://localhost:5143/api/UsersControllerDb/login',
+              data: loginAttempt,
+              method: "POST"
           })
-          .catch((error) => {
-              console.error("Login fejl:", error);
-          });
-  },
-          
+              .then((response) => {
+                  console.log("Serverens svar:", response.data);
+                  if (response.status == 200) {
+                      this.loggedInUser = response.data.username; // Sæt den loggede ind bruger
+                      alert("Login succesfuldt!");
+                  } else {
+                      alert("Forkert nummerplade eller kodeord.");
+                  }
+              })
+              .catch((error) => {
+                  console.error("Login fejl:", error);
+              });
       },
+  
+      logout() {
+          console.log("Log ud metode kaldt");
+          this.loggedInUser = null; // Fjern login-status
+          this.licenseplate = "";  // Nulstil indtastningsfelter
+          this.Password = "";
+          alert("Du er nu logget ud.");
+      }
+  },
  }).mount("#app");
  
