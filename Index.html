@@ -16,23 +16,27 @@
         </head>
 
 
-        <body>
-            <!-- Top-Nav Bar -->
-            <div class="topnav">
-                <a class="active" href="#home">Z-Park</a>
-                <a href="#">Produkt</a>
-                <a href="#">Om Os</a>
-                <a href="CreateUser.html">Opret Bruger</a>
-                <a href="Brugere.html">Brugere</a>
-                <span v-if="loggedInUser">
-                    <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
-                </span>
-                <span v-else>
-                    <a href="#">Log ind</a>
-                </span>
-            </div>
-        
+        <body> 
+          
+           
             <div id="app">
+                <!-- Top-Nav Bar -->
+                <div class="topnav">
+                    <a class="active" href="#home">Z-Park</a>
+                    <a href="#">Produkt</a>
+                    <a href="#">Om Os</a>
+                    <a href="CreateUser.html">Opret Bruger</a>
+                    <a href="Brugere.html">Brugere</a>
+                    <!-- Dynamisk visning af Log ind / Log ud -->
+                    <span v-if="!loggedInUser">
+                        <a href="#" style="cursor: pointer;">Log ind</a>
+                    </span>
+                    <span v-else>
+                        <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
+                    </span>
+                </div>
+            
+                <!-- Login/Logout sektion -->
                 <div class="login" v-if="!loggedInUser">
                     <h3 id="h3login">Log ind</h3>
                     <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
@@ -46,10 +50,14 @@
                     <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
                     <p v-if="successMessage" class="success">{{ successMessage }}</p>
                 </div>
+            
                 <div class="logout" v-if="loggedInUser">
                     <h3>Velkommen, {{ loggedInUser }}</h3>
+                
                 </div>
             </div>
+            
+                
         </body>
         
 
@@ -57,6 +65,4 @@
             <script src="main.js"></script>
             
 
-
-        </body>
     </html>
