@@ -12,6 +12,7 @@ class loginData {
    data() {
      return {
        Userslist: [], // Ændret af Rebin: Rettet fra User til Userslist.
+       userInfo: [], // Store the logged-in user's detailed info
        error: null,
        statuscode: null,
        loggedInUser: null, // Stores the username after login
@@ -23,7 +24,6 @@ class loginData {
        Password: "",
        StationId:"06170", //Roskilde Lufthavn som datakilde.
        ApiKey:"f12adcb1-0bcb-4d7b-ad45-b8475b0f12fd", //Personlig API-key fra DMI.
-
      };
    },
  
