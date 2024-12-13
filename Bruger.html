@@ -19,9 +19,9 @@
             <div id="app">
                 <!-- Top-Nav Bar -->
                 <div class="topnav">
-                    <a class="active" href="Index.html">Z-Park</a>
+                    <a href="Index.html">Z-Park</a>
                     <a href="CreateUser.html">Opret Bruger</a>
-                    <a href="Bruger.html">Bruger-Liste</a>
+                    <a class="active3" href="Bruger.html">Bruger-Liste</a>
 
                     <!-- Dynamisk visning af Log ind / Log ud -->
                     <span v-if="!loggedInUser">
@@ -31,12 +31,11 @@
                         <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
                     </span>
                 </div>
-
-                <!-- <div id="app"> 
+ 
                     <div class="BrugerListeTabelBox">
                         <h2 id="h2UserList">User-Liste</h2>
                         <br>
-                         Bruger indholdscontainer ændret navn til userlist 
+                         <!-- Bruger indholdscontainer ændret navn til userlist -->
                         <ul v-if="Userslist.length > 0">
                             <table id="UserList">
                                 <thead>
@@ -50,45 +49,22 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="user in Userslist" :key="user.licenseplate">
-                                        <td>{{ user.name }} {{ user.surname }}</td>
+                                        <td>{{ user.name }} {{ user.surname }} </td>
                                         <td>{{ user.licenseplate }}</td>
                                         <td>{{ user.mail }}</td>
                                         <td>{{ user.username }}</td>
                                         <td>{{ user.password }}</td>
+
                                     </tr>
                                 </tbody>
                             </table>
                         </ul>
+                        <button @click="deleteUserById(userId)">Delete User</button>
                         <div v-else style="font-style: italic;">Der er ingen brugere</div>
-                    </div>*/
-                </div> -->
-            
-
-                <!-- Login/Logout sektion -->
-                <div class="login" v-if="!loggedInUser">
-                    <h3 id="h3login">Log ind</h3>
-                        <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
-                        <p></p>
-                        <input id="U-name" type="password" v-model="Password" placeholder="Kodeord">
-                        <a id="forgot" href="#">Glemt kodeord/brugernavn?</a>
-                        <br />
-                    <div>
-
-                    <button @click="verifyLogin">Log ind</button>
                     </div>
-                        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-                        <p v-if="successMessage" class="success">{{ successMessage }}</p>
-                    </div>
-            
-                <div class="logout" v-if="loggedInUser">
-                    <h3>Velkommen, {{ loggedInUser }}</h3>                
-                </div>
-            </div>
-            
-                
+                </div>       
         </body>
         
-
             <!-- Import App --> 
             <script src="main.js"></script>
             
