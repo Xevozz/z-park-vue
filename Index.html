@@ -1,96 +1,58 @@
 <!DOCTYPE html> 
-    <html lang="en"> 
-        <head> 
-            <meta charset="UTF-8" /> 
-            <title> Z-park </title>
-            
-            <!-- Import Styles -->
-            <link rel="stylesheet" href="Style.css" />
+<html lang="en"> 
+    <head> 
+        <meta charset="UTF-8" /> 
+        <title> Z-park </title>
+        
+        <!-- Import Styles -->
+        <link rel="stylesheet" href="Style.css" />
 
-            <!-- Import Axios.js -->
-            <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js" ></script>
-            
-            <!-- Import Vue.js -->
-             <script src="https://unpkg.com/vue@3/dist/vue.global.js" ></script>
-        </head>
+        <!-- Import Axios.js -->
+        <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+        
+        <!-- Import Vue.js -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    </head>
 
+    <body> 
+        <div id="app">
+            <!-- Top-Nav Bar -->
+            <div class="topnav">
+                <a class="active" href="Index.html">Z-Park</a>
+                <a href="CreateUser.html">Opret Bruger</a>
+                <a href="http://192.168.14.55:5000" target="_blank">Live Parkering</a> <!-- Ny knap -->
 
-        <body> 
-            <div id="app">
-                <!-- Top-Nav Bar -->
-                <div class="topnav">
-                    <a class="active" href="Index.html">Z-Park</a>
-                    <a href="CreateUser.html">Opret Bruger</a>
-
-                    <!-- Dynamisk visning af Log ind / Log ud -->
-                    <span v-if="!loggedInUser">
-                        <a href="#" style="cursor: pointer;">Log ind</a>
-                    </span>
-                    <span v-else>
-                        <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
-                    </span>
-                </div>
-
-                <!-- <div id="app"> 
-                    <div class="BrugerListeTabelBox">
-                        <h2 id="h2UserList">User-Liste</h2>
-                        <br>
-                         Bruger indholdscontainer ændret navn til userlist 
-                        <ul v-if="Userslist.length > 0">
-                            <table id="UserList">
-                                <thead>
-                                    <tr>
-                                        <th>Fulde navn</th>
-                                        <th>Nummerplade</th>
-                                        <th>E-mail</th>
-                                        <th>Brugernavn</th>
-                                        <th>Kodeord</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr v-for="user in Userslist" :key="user.licenseplate">
-                                        <td>{{ user.name }} {{ user.surname }}</td>
-                                        <td>{{ user.licenseplate }}</td>
-                                        <td>{{ user.mail }}</td>
-                                        <td>{{ user.username }}</td>
-                                        <td>{{ user.password }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </ul>
-                        <div v-else style="font-style: italic;">Der er ingen brugere</div>
-                    </div>*/
-                </div> -->
-            
-                
-                <!-- Login/Logout sektion -->
-                <div class="login" v-if="!loggedInUser">
-                    <h3 id="h3login">Log ind</h3>
-                        <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
-                        <p></p>
-                        <input id="U-name" type="password" v-model="Password" placeholder="Kodeord">
-                        <a id="forgot" href="#">Glemt kodeord/brugernavn?</a>
-                        <br />
-                    <div>
-
-                    <button @click="verifyLogin">Log ind</button>
-                    </div>
-                        <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
-                        <p v-if="successMessage" class="success">{{ successMessage }}</p>
-                    </div>
-            
-                <div class="logout" v-if="loggedInUser">
-                    <h3>Velkommen, {{ loggedInUser }}</h3>                
-                </div>
+                <!-- Dynamisk visning af Log ind / Log ud -->
+                <span v-if="!loggedInUser">
+                    <a href="#" style="cursor: pointer;">Log ind</a>
+                </span>
+                <span v-else>
+                    <a @click="logout" href="#" style="cursor: pointer;">Log ud</a>
+                </span>
             </div>
             
-                
-        </body>
+            <!-- Login/Logout sektion -->
+            <div class="login" v-if="!loggedInUser">
+                <h3 id="h3login">Log ind</h3>
+                <input id="U-name" v-model="licenseplate" placeholder="Nummerplade">
+                <p></p>
+                <input id="U-name" type="password" v-model="Password" placeholder="Kodeord">
+                <a id="forgot" href="#">Glemt kodeord/brugernavn?</a>
+                <br />
+                <div>
+                    <button @click="verifyLogin">Log ind</button>
+                </div>
+                <p v-if="errorMessage" class="error">{{ errorMessage }}</p>
+                <p v-if="successMessage" class="success">{{ successMessage }}</p>
+            </div>
         
+            <div class="logout" v-if="loggedInUser">
+                <h3>Velkommen, {{ loggedInUser }}</h3>                
+            </div>
+        </div>
+    </body>
 
-            <!-- Import App --> 
-            <script src="main.js"></script>
-            
-            <script> const mountedApp = app.mount('#app') </script>
-
-    </html>
+    <!-- Import App --> 
+    <script src="main.js"></script>
+    <script> const mountedApp = app.mount('#app') </script>
+</html>
